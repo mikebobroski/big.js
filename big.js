@@ -924,13 +924,14 @@
 
   Big['default'] = Big.Big = Big;
 
-  //AMD.
-  if (typeof define === 'function' && define.amd) {
-    define(function () { return Big; });
-
   // Node and other CommonJS-like environments that support module.exports.
-  } else if (typeof module !== 'undefined' && module.exports) {
+  if (typeof module !== 'undefined' && module.exports) {
     module.exports = Big;
+  }
+  
+  //AMD.
+  else if (typeof define === 'function' && define.amd) {
+    define(function () { return Big; });
 
   //Browser.
   } else {
